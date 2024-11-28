@@ -466,6 +466,7 @@ async fn upload_chunk(
 fn hf_transfer(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_function(wrap_pyfunction!(download, module)?)?;
     module.add_function(wrap_pyfunction!(multipart_upload, module)?)?;
+    module.add_function(wrap_pyfunction!(download_async, module)?)?;
     module.add("__version__", env!("CARGO_PKG_VERSION"))?;
     Ok(())
 }
